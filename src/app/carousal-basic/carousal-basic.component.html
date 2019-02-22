@@ -1,0 +1,32 @@
+<div class="carousal-div">
+<ngb-carousel>
+  <ng-template ngbSlide>
+    <img src="../assets/image/c13.jpg" alt="Random first slide">
+  </ng-template>
+  <ng-template ngbSlide>
+    <img src="../assets/image/c14.jpg" alt="Random second slide">
+  </ng-template>
+  <ng-template ngbSlide>
+    <img src="../assets/image/c16.jpg" alt="Random third slide">
+  </ng-template>
+</ngb-carousel>
+</div>
+<div class="searchdiv">
+    <form class="form-inline" style="margin-top: 6%;">
+      <div class="form-group search">
+        <label for="from"><span>From:</span></label>
+        <input type="text" name="from" [(ngModel)]="from" class="form-control" >
+      </div>
+      <div class="form-group search">
+        <label for="to"><span>To:</span></label>
+        <input type="text" class="form-control" [(ngModel)]="to" name="to">
+      </div>
+      <div class="form-group search" >
+        <label for="date"><span>Date:</span>
+        <input type="date" class="form-control" name="date" [(ngModel)]="date"></label>
+      </div>
+      <div class="form-group search">
+      <button type="submit" class="btn btn-default searchbtn" (click)="searchBus()">Submit</button>
+      </div>
+    </form>   
+</div>

@@ -1,0 +1,60 @@
+{
+  "User": [
+    {
+      "id": 1,
+      "Email": "chiragchoyal@gh.com",
+      "Password": "dsds"
+    },
+    {
+      "Email": "chiragchoyal@gmail.com",
+      "Password": "kjoih",
+      "id": 2
+    },
+    {
+      "Email": "chi@gmail.com",
+      "Password": "kj",
+      "id": 3
+    },
+    {
+      "Email": "chi@gmail.com",
+      "Password": "",
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "Email": "chi@gmail.com",
+      "Password": "hsucu",
+      "id": 7
+    },
+    {
+      "Email": "hello@gmail.com",
+      "Password": "jkhd",
+      "id": 8
+    },
+    {
+      "Email": "",
+      "Password": "jkhd",
+      "id": 9
+    },
+    {
+      "Email": "vikas@gmail.com",
+      "Password": "kljjsf",
+      "id": 10
+    },
+    {
+      "Email": "myname@example.com",
+      "Password": "jflsff",
+      "id": 11
+    },
+    {
+      "Email": "vik@gmail.com",
+      "Password": "sfsdf",
+      "id": 12
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+#back{
+    /*background-image:url('/src/assets/image/bg.jpg');*/
+   background-color: white;
+    margin-top: 0%;
+    padding-top: 0%
+}
+
+#about{
+    border-color: rgb(116, 113, 113);
+    border: 1%;
+    background-color: transparent;
+    margin-top: 10%;
+    background-origin: padding-box;
+    font-size: 130%;
+    /* opacity: 0.5; */
+    margin-top: 1%;
+    margin-bottom: 3%;
+    padding:3%;
+    background-color: hsla(0, 9%, 96%, 0.5);
+    z-index: 2;
+    color: #000;
+    width: 80%;
+    margin-left: 10%;
+    text-align: justify;
+    display: inline-block;
+}
+#add{
+ align-self:left;
+ width: 40%;
+}
+#h3{
+    color:rgb(41, 47, 66);
+}
