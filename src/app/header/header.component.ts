@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { UserService } from 'src/services/user.service';
 import { map } from 'rxjs/operators';
@@ -13,14 +13,11 @@ import { map } from 'rxjs/operators';
 export class HeaderComponent implements OnInit {
 
   constructor(private userservice:UserService) {
-    console.log("constructor header");
+    console.log("is active =",this.isActive);
   }
 
-  isActive:boolean;
-  
+  isActive:boolean=this.userservice.isLogged();
   ngOnInit() {
-    console.log("ngonit invoked");
-    this.isActive = this.userservice.isLogged();
   }
   
 

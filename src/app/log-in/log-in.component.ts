@@ -3,39 +3,31 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticateService } from 'src/services/authenticate.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/services/user.service';
-import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.css'],
-  providers: [HeaderComponent]
 })
 export class LogInComponent implements OnInit {
 
   email:string
   password:string
-  constructor(private x:HeaderComponent, private authenticate:AuthenticateService,private userservice:UserService , private route:Router) { }
+  constructor(private authenticate:AuthenticateService,private userservice:UserService , private route:Router) { }
 
   ngOnInit() {
   }
-  //u:UserService;
   checkUser(){
       this.authenticate.getUser(this.email,this.password).subscribe(
         r => {
           if (r.token) {
             this.userservice.setToken(r.token);
-            console.log("token set");
-            this.route.navigateByUrl("/");
-            console.log("token set 2");
-            console.log("token set 3");
+            window.location.href = "/";
           }
         },
         r => {
           alert(r.error.error);
         });
-       // new HeaderComponent(this.u);
-      console.log("helooooooo");
   }
   
 }

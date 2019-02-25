@@ -5,8 +5,8 @@ import { AboutUsComponent }  from './about-us/about-us.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LogInComponent } from './log-in/log-in.component';
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'home', redirectTo: '', pathMatch: 'full'},
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'about', component: AboutUsComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'login', component: LogInComponent }
