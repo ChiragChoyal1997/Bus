@@ -1,0 +1,13 @@
+.bus_detail{
+    border:1px solid;
+    border-radius:5px;
+    margin-left:5.5%;
+}
+.detailheading{
+    margin-top:5px;
+    border-bottom: 1px solid;
+}
+.bookbutton{
+    text-align:center;
+    margin-top: 15px;
+}

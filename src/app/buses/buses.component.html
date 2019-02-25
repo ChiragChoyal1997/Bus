@@ -1,0 +1,21 @@
+
+
+<div class="well bus_major" *ngFor="let bus of b">
+  <div class="row bus_inner1">
+      <div class="col-md-6"><h3>{{bus.bus_name}}</h3></div>
+      <div class="col-md-6"><label>Rating:</label>{{bus.rating}}</div>
+  </div>
+  <div class="row bus_inner2">
+      <div class="col-md-6 ">
+        <label>From:</label> {{bus.from}}<br>
+        <label>To:</label> {{bus.to}}<br>
+        <label>Fare Charges:</label> {{bus.fare}}
+      </div>
+      <div class="col-md-6 ">
+        <label>Boarding Time:</label> {{bus.boarding_time}}<br>
+        <label>Bus Number:</label> {{bus.bus_number}}<br>
+        <button class="btn btn-primary" (click)="book(bus)">Book Now</button>
+      </div>
+  </div> 
+</div>
+

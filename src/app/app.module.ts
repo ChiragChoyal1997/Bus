@@ -21,6 +21,8 @@ import { UserService } from '../services/user.service';
 import { AuthGuard } from 'src/services/auth/auth.guard';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { BusSearchService } from '../services/bus-search.service';
+import { BusesComponent } from './buses/buses.component';
+import { BookingComponent } from './booking/booking.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { BusSearchService } from '../services/bus-search.service';
     AboutUsComponent,
     SignUpComponent,
     LogInComponent,
+    BusesComponent,
+    BookingComponent,
     
   ],
   imports: [
@@ -44,7 +48,6 @@ import { BusSearchService } from '../services/bus-search.service';
     AngularWebStorageModule,
     NgxWebstorageModule.forRoot()
   ],
-  //exports: [AppRoutingModule],
   providers: [SaveUserService,AuthenticateService,UserService,BusSearchService],
   bootstrap: [AppComponent]
 })
