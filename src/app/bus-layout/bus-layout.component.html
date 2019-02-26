@@ -1,0 +1,21 @@
+<div class="outerLayout">
+  <div class="outerLayout1">
+    <div class="row">
+      <div class="col-md-2 sections">
+        <div style="height:50%;">
+          <img class="logo" src="../assets/image/driverlogo.png"/>
+        </div>
+        <div style="height:50%;">
+            <img class="logo logo1" src="../assets/image/exit.png"/>
+        </div>
+      </div>
+      <div class="col-md-10">
+        
+        <div *ngFor="let s of seat">
+            <div *ngIf="newline"><br></div>
+            <input type="checkbox" style="float: left;margin-right:5px;">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

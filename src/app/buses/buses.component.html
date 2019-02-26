@@ -1,5 +1,3 @@
-
-
 <div class="well bus_major" *ngFor="let bus of b">
   <div class="row bus_inner1">
       <div class="col-md-6"><h3>{{bus.bus_name}}</h3></div>
@@ -14,8 +12,11 @@
       <div class="col-md-6 ">
         <label>Boarding Time:</label> {{bus.boarding_time}}<br>
         <label>Bus Number:</label> {{bus.bus_number}}<br>
-        <button class="btn btn-primary" (click)="book(bus)">Book Now</button>
+        <button class="btn btn-primary" (click)="seatView(bus)">View Seats</button>
       </div>
   </div> 
+  <div style="width: 100%;height: 300px;border-bottom:1px solid black;" *ngIf="showseat && bb==bus.id">
+  <app-bus-layout></app-bus-layout>
+  </div>
 </div>
 

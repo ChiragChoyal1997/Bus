@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BusesService } from 'src/services/buses.service';
 import { Bus } from '../bus.model';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { SeatService } from 'src/services/seat.service';
 @Component({
   selector: 'app-buses',
   templateUrl: './buses.component.html',
@@ -10,16 +10,24 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class BusesComponent implements OnInit {
 
-  constructor(public buses:BusesService,private route:Router) {
+  constructor(public buses:BusesService,private route:Router,private seatservice:SeatService) {
     this.b =buses.getBus().Bus;
    }
-   b:Bus[];
-
+  b:Bus[];
+   showseat:boolean=false;
   ngOnInit() {
   }
-  
-  book(bus:Bus){
-    this.buses.setBuss(bus);
-    this.route.navigateByUrl("/booking");
+  bb:number;
+  seatView(bus:Bus){
+    this.showseat=!this.showseat;
+    console.log(bus.id)
+    this.bb = bus.id;
+    this.seatservice.getSeats(bus.id).subscribe(
+      data => {
+        this.seatservice.saveSeats(data);
+      }
+    )
+    
   }
+
 }

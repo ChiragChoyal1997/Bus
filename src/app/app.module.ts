@@ -23,6 +23,8 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 import { BusSearchService } from '../services/bus-search.service';
 import { BusesComponent } from './buses/buses.component';
 import { BookingComponent } from './booking/booking.component';
+import { BusLayoutComponent } from './bus-layout/bus-layout.component';
+import { SeatService } from 'src/services/seat.service';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { BookingComponent } from './booking/booking.component';
     LogInComponent,
     BusesComponent,
     BookingComponent,
+    BusLayoutComponent,
     
   ],
   imports: [
@@ -48,7 +51,7 @@ import { BookingComponent } from './booking/booking.component';
     AngularWebStorageModule,
     NgxWebstorageModule.forRoot()
   ],
-  providers: [SaveUserService,AuthenticateService,UserService,BusSearchService],
+  providers: [SeatService,SaveUserService,AuthenticateService,UserService,BusSearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

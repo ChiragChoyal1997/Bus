@@ -1,0 +1,25 @@
+.outerLayout{
+    margin-left: 30%;
+    margin-right:0%;
+}
+.outerLayout1{
+    border:1px solid black;
+    border-radius:5px;
+    width:60%;
+    height:200px
+}
+.sections{
+    height:200px;
+    border-right:1px solid black;
+}
+.logo{
+    width: 40%;
+    height:30%;
+    margin-left: 20%;
+}
+.logo1{
+    height: 25px;
+    position:absolute;
+    bottom: 0;
+    margin-bottom: 5px;
+}
