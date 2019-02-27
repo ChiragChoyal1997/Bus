@@ -8,41 +8,35 @@ import { Seats } from 'src/app/seats.model';
 })
 export class BusLayoutComponent implements OnInit {
 
-  constructor(private seatservice:SeatService) { 
-    
+  constructor(private seatservice:SeatService) {
     this.seat=seatservice.getSeatss().seats;
-    //this.newline = false;
-    for(var s in this.seat){
-      
-      if(this.seat[s].row!=this.row && this.seat[s].column==this.column){
-        if(this.count<4)
+    console.log(this.seat);
+    
+    for(let i:number=this.seat[this.k].row;i<4;)
+      {
+        if(this.k<20)
         {
-          this.newline = false;
-          this.count++;
-          this.row=this.seat[s].row;
+        console.log(this.seat[this.k]);
+        for(let j:number=0;j<5;j++)
+        { 
+          this.newline=false;
+          console.log(this.newline);
+        }
+          this.newline=true;
+          this.k++;
         }
         else{
-          this.newline = true;
-          this.count=0;
-
-        }
-      }
-      else{
-        
-        
-      }
-    }
-    
+          break;
+        } 
+      }  
+    //this.f(); 
   }
-  seat:Seats[];
+  seat:Seats[]=this.seatservice.getSeatss().Seats;
   //variables to set seat status
-  count=0;
-  row=0;
-  column:number=-1;
-  newline:boolean=true;
-  
+  newline:boolean;
+  k:number=0;
   ngOnInit() {
   }
-  
-
+  f(){
+  }
 }

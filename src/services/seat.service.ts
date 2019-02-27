@@ -10,7 +10,7 @@ import { SessionStorageService, SessionStorage } from 'angular-web-storage';
 export class SeatService {
   constructor( private http:HttpClient,public session: SessionStorageService) { }
 
-  url="http://www.mocky.io/v2/5c7504f02f000093489643dc";
+  url="http://www.mocky.io/v2/5c757349310000832cc23502";
   getSeats(id:number){
     return this.http.post<Seats[]>(this.url,id,{
       headers: new HttpHeaders({
