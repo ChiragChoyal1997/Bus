@@ -25,6 +25,7 @@ import { BusesComponent } from './buses/buses.component';
 import { BookingComponent } from './booking/booking.component';
 import { BusLayoutComponent } from './bus-layout/bus-layout.component';
 import { SeatService } from 'src/services/seat.service';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { SeatService } from 'src/services/seat.service';
     FormsModule,
     HttpClientModule,
     AngularWebStorageModule,
+    AgGridModule.withComponents(null),
     NgxWebstorageModule.forRoot()
   ],
   providers: [SeatService,SaveUserService,AuthenticateService,UserService,BusSearchService],

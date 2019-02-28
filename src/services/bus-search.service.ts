@@ -7,7 +7,7 @@ import { Bus } from '../app/bus.model';
 export class BusSearchService {
 
   constructor(private http:HttpClient) { }
-  url="http://demo5143156.mockable.io/buses";
+  url="http://www.mocky.io/v2/5c7610383200003919f45e73";
   buses:Bus[];
   getBuses(from:string,to:string,date:any){
     return this.http.post<Bus[]>(this.url,{ from:from, to:to, date:date},{

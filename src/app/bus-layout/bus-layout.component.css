@@ -1,12 +1,14 @@
 .outerLayout{
-    margin-left: 30%;
+    margin-left: 10%;
+    margin-bottom: 2%;
+    margin-top:2%;
     margin-right:0%;
 }
 .outerLayout1{
     border:1px solid black;
     border-radius:5px;
-    width:60%;
-    height:200px
+    width:40%;
+    height:200px;
 }
 .sections{
     height:200px;
@@ -23,3 +25,28 @@
     bottom: 0;
     margin-bottom: 5px;
 }
+
+.available_seat{
+background-color: blue;
+}
+.booked_seat{
+    background: #808082;
+    border:2px solid black;
+}
+.selected_seat{
+    background: green;
+    border:2px solid black;
+}
+.check{
+    height: 25px;
+    width: 30px;
+    background: yellow;
+}
+.seatimage{
+    width:20px;
+    height:20px;
+}
+.notavail{
+    cursor:not-allowed;
+}
+

@@ -1,5 +1,7 @@
+
 <div class="outerLayout">
-  <div class="outerLayout1">
+  <div class="row">
+  <div class="col-md-7 outerLayout1">
     <div class="row">
       <div class="col-md-2 sections">
         <div style="height:50%;">
@@ -10,12 +12,36 @@
         </div>
       </div>
       <div class="col-md-10">
-        
-        <div *ngFor="let s of seat">
-            <div *ngIf="newline"><br></div>
-            <input type="checkbox" style="float: left;margin-right:5px;">
-        </div>
+          <table style="margin-left:100px;">
+            <tr *ngFor="let r of row, index as i">
+              <td *ngFor="let c of column, index as j" style="padding:12px;width:55px;">
+                <span *ngFor="let s of seat">
+                  <span *ngIf="s.row == i && s.column == j">
+                    <!-- <button class="btn btn-default" [className]="!s.available ? 'notavail' : 'available_seat'" (click)="toggle(s.id)"><img [src]="s.available?(clicker?img1:img2):img2" class="seatimage" /></button> -->
+                    <!-- <input type="button" (click)="newer(s.id)" class="check" [disabled]="!s.available" [ngClass]="(s.available)?((isActive && h == s.id)?'selected_seat':'available_seat'):'booked_seat'" name="s.id" /> -->
+                    <button class="check" id="seat{{s.id}}"  (click)="newer(s.id)" [disabled]="!s.available">{{s.id}}</button>
+                  </span>
+                </span>
+              </td> 
+            </tr>
+          </table>
       </div>
     </div>
   </div>
+  <div class="col-md-4" style="margin-left:10px;border: 1px solid black;border-radius:5px;">
+    <div class="row" style="height:80%">
+        <div class="panel panel-default" style="width:100%">
+            <div class="panel-heading" style="background-color: grey;color:white;padding-top:10px;padding-bottom: 10px;padding-left:10px;"><h5>Seats</h5></div>
+            <div class="panel-body" style="padding-top:10px;padding-bottom: 10px;padding-left:10px;">
+              <span *ngFor="let b of booknow">
+              <span *ngIf="b != 0" style="margin-right:10%">{{b}}</span>
+            </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn btn-primary" style="position: absolute;right:10px;bottom:10px;">Proceed to Pay</button>
+    </div>
+  </div>
+</div>
 </div>
