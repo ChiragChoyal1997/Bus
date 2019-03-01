@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SeatService } from 'src/services/seat.service';
 import { Seats } from 'src/app/seats.model';
-// import 'ag-grid-community/dist/styles/ag-grid.css';
-// import 'ag-grid-community/dist/styles/ag-theme-balham.css';
-//import { empty } from 'rxjs';
-//import { FormBuilder,FormControl, FormGroup,FormArray } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { BookSeatService } from 'src/services/book-seat.service';
 
 @Component({
   selector: 'app-bus-layout',
@@ -13,9 +11,7 @@ import { Seats } from 'src/app/seats.model';
 })
 export class BusLayoutComponent implements OnInit {
 
-  constructor(private seatservice:SeatService) {
-    
-
+  constructor(private seatservice: SeatService,private rout:Router,private store:BookSeatService) {
     /*if(this.seat[0].sleeper)
     {
       this.row=new Array(4);
@@ -25,84 +21,65 @@ export class BusLayoutComponent implements OnInit {
       this.row=this.row;
       this.column=this.column;
     }*/
-  
   }
-  seat:Seats[]=this.seatservice.getSeatss().seats;
-
-  // img1:string="../assets/image/available_seat_img.png";
-  // img2:string="../assets/image/booked_seat_img.png";
-  // imageUrl:string=this.img1;
-  row=new Array(4);
-  column=new Array(5);
-  // clicker:boolean=true;
-  
-  booknow = Array.apply(null, Array(5)).map(function() { return 0 });
-  x:number;
+  seat: Seats[] = this.seatservice.getSeatss().seats;
+  row = new Array(4);
+  column = new Array(5);
+  // booknow:Seats[] = Array.apply(null, Array(5)).map(function () { return null });
+  booknow : Seats[] = [].fill(null,0);
+  x: number;
   count = 0;
-  isActive:boolean=false;
-  i=0;
-  h:number;
-  toggle(s:number):boolean{
-      
-      for(var x=0; x<this.booknow.length;x++)
-      {
-        if(s == this.booknow[x]){
-          
-          document.getElementById("seat"+s).style.background = "yellow";
-          // const index: number = this.booknow.indexOf(s);
-          // if (index !== -1) {
-          //     this.booknow.splice(index, 1);
-          //     break;
-          // }            
-          return true;  
-        }
+  i = 0;
+
+  toggle(s: Seats): boolean {
+    for (var x = 0; x < this.booknow.length; x++) {
+      if (s == this.booknow[x]) {
+        document.getElementById("seat" + s.id).style.background = "yellow";
+        return true;
       }
-      document.getElementById("seat"+s).style.background = "blue";
-      return false;
-          // this.booknow[this.i]=s;
-          // this.i++;
-          // console.log(this.booknow);
     }
+    document.getElementById("seat" + s.id).style.background = "blue";
+    return false;
+  }
 
-    lk(s:number){
-      const index: number = this.booknow.indexOf(s);
-          if (index !== -1) {
-              this.booknow[index]=0;
-              //this.booknow.splice(index, 1);
-              this.isActive=false;
-          }
+  lk(s: Seats) {
+    const index: number = this.booknow.indexOf(s);
+    if (index !== -1) {
+      this.booknow[index] = null;
     }
+  }
 
-    add(s:number)
-    {
-      this.booknow[this.i]=s;
-      this.i++;
-      console.log(this.booknow);
-      this.isActive=true;
-    }
+  add(s: Seats) {
+    this.booknow[this.i] = s;
+    this.i++;
+  }
 
-    newer(s:number){
-      for(var y=0; y<this.booknow.length;y++){
-        if(this.booknow[y] != 0) 
-        {
-          this.count++;
-        }
+  newer(s: Seats) {
+    for (var y = 0; y < this.booknow.length; y++) {
+      if (this.booknow[y] != null) {
+        this.count++;
       }
-          if(this.toggle(s))
-          {
-            this.lk(s);
-          }
-          else{
-            if(this.count>=5){
-              window.alert("Sorry!\n You can Book only 5 seats at a Time !");
-              document.getElementById("seat"+s).style.background = "yellow";
-              }
-              else{
-            this.add(s);
-              }
-          }
-        this.count=0;
     }
+    if (this.toggle(s)) {
+      this.lk(s);
+    }
+    else {
+      if (this.count >= 5) {
+        window.alert("Sorry!\n You can Book only 5 seats at a Time !");
+        document.getElementById("seat" + s.id).style.background = "yellow";
+      }
+      else {
+        this.add(s);
+      }
+    }
+    this.count = 0;
+    console.log(this.booknow);
+  }
+
+  book(){
+    this.store.storeSeat(this.booknow);
+    this.rout.navigateByUrl("/booking");
+  }
   ngOnInit() {
   }
 }

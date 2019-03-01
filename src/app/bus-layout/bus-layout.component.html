@@ -1,4 +1,3 @@
-
 <div class="outerLayout">
   <div class="row">
   <div class="col-md-7 outerLayout1">
@@ -18,8 +17,8 @@
                 <span *ngFor="let s of seat">
                   <span *ngIf="s.row == i && s.column == j">
                     <!-- <button class="btn btn-default" [className]="!s.available ? 'notavail' : 'available_seat'" (click)="toggle(s.id)"><img [src]="s.available?(clicker?img1:img2):img2" class="seatimage" /></button> -->
-                    <!-- <input type="button" (click)="newer(s.id)" class="check" [disabled]="!s.available" [ngClass]="(s.available)?((isActive && h == s.id)?'selected_seat':'available_seat'):'booked_seat'" name="s.id" /> -->
-                    <button class="check" id="seat{{s.id}}"  (click)="newer(s.id)" [disabled]="!s.available">{{s.id}}</button>
+                    <!-- <input type="button" (click)="newer(s.id)" class="check" [disabled]="!s.available" [ngClass]="(s.available)?'available_seat':'booked_seat'" name="s.id" /> -->
+                    <button class="check" id="seat{{s.id}}"  (click)="newer(s)" [ngClass]="(s.available)?'available_seat':'booked_seat'" [disabled]="!s.available">{{s.id}}</button>
                   </span>
                 </span>
               </td> 
@@ -34,13 +33,13 @@
             <div class="panel-heading" style="background-color: grey;color:white;padding-top:10px;padding-bottom: 10px;padding-left:10px;"><h5>Seats</h5></div>
             <div class="panel-body" style="padding-top:10px;padding-bottom: 10px;padding-left:10px;">
               <span *ngFor="let b of booknow">
-              <span *ngIf="b != 0" style="margin-right:10%">{{b}}</span>
+              <span *ngIf="b != null" style="margin-right:10%">{{b.id}}</span>
             </span>
             </div>
         </div>
     </div>
     <div class="row">
-        <button class="btn btn-primary" style="position: absolute;right:10px;bottom:10px;">Proceed to Pay</button>
+        <button class="btn btn-primary" style="position: absolute;right:10px;bottom:10px;" (click)="book()" >Book Now</button>
     </div>
   </div>
 </div>

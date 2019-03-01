@@ -1,47 +1,57 @@
-  <div class="well">
-  <form>
-      <div class="row">
-    <div class="col-md-5 bus_detail">
-      <div class="detailheading">
-        <h3>Bus Detail</h3>
-      </div>
-      <div >
-      <br>
-      <label>Bus Name :{{selectedBus.bus_name}}</label><br>
-      <label>From :{{selectedBus.from}}</label><br>
-      <label>To :{{selectedBus.to}}</label><br>
-      <label>Date :{{selectedBus.date}} </label><br>
-      <label>Fare Charges :{{selectedBus.fare}}</label><br>
-      <label>Bus Number : {{selectedBus.bus_number}}</label><br>
-      <label>Boarding Time :{{selectedBus.boarding_time}}</label><br>
-      </div>
-    </div>
-    <div class="col-md-5 bus_detail">
-        <div class="detailheading"><h3>Customer Detail</h3></div>
+<form>
+<div class="well">
+    <div class="row">
+      <div class="col-md-2 bus_detail">
+        <div class="detailheading">
+          <h3>Bus Detail</h3>
+        </div>
         <div>
           <br>
-        <label>Name : &nbsp;</label>
-        <input type="text" name="name"/>
-        <br>
-        <label>Aadhar Id : &nbsp;</label>
-        <input type="text" name="aadhar"/>
-        <br>
-        <label>Contact No. : &nbsp;</label>
-        <input type="text" name="contact"/>
-        <br>
-        <label>No. of Person  : &nbsp;</label>
-        <input type="text" name="numberofperson"/>
-        <br>
-        <label>Fare charges : &nbsp;</label>
-        <label></label>
-        <br>
+          <label>Bus Name :{{selectedBus.bus_name}}</label><br>
+          <label>From :{{selectedBus.from}}</label><br>
+          <label>To :{{selectedBus.to}}</label><br>
+          <label>Date :{{selectedBus.date}} </label><br>
+          <label>Bus Number : {{selectedBus.bus_number}}</label><br>
+          <label>Boarding Time :{{selectedBus.boarding_time}}</label><br>
         </div>
+      </div>
+      <div class="col-md-8 bus_detail">
+        <div class="detailheading">
+          <h3>Seat Detail</h3>
+        </div>
+        <div class="panel-group" style="margin-top: 10px;">
+          <div *ngFor="let s of seat,index as i">
+          <div *ngIf="s != null" class=" panel panel-default" style="float:left;width:49.5%;margin:2px;border:1px solid black;border-radius: 5px;">
+            <div class="panel-heading"
+                 style="background-color: grey;color:white;padding-top:5px;padding-bottom: 5px;padding-left:10px;">
+              <h5>Passanger {{i+1}} : Seat {{s.id}}</h5>
+            </div>
+            <div class="panel-body" style="padding-top:5px;padding-bottom: 5px;padding-left:10px;">
+              <table>
+                <tr>
+                  <td><label>Name: </label></td><td><input id="name{{s.id}}"  type="text"/></td>
+                </tr>
+                <tr>
+                  <td><label>Age: </label></td><td><input id="age{{s.id}}"   type="text"/></td>
+                </tr>
+                <tr>
+                <td><label>Gender: </label></td><td><label>Male: </label><input type="radio"  id="gender{{s.id}}" name="gender{{s.id}}" value="male"/><label>Female: </label><input type="radio" id="gender{{s.id}}" name="gender{{s.id}}" value="female"/></td>
+                </tr>
+                <tr>
+                  <td><label>Email : </label></td><td><input id="email{{s.id}}" type="text"/></td>
+                </tr>
+                <tr>
+                  <td><label>Contact : </label></td><td><input id="contact{{s.id}}" type="text"/></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-  </form>
   <div class="bookbutton">
-    <button class="btn btn-primary">Book Now</button>
+    <button class="btn btn-primary" (click)="onSubmit()" style="width: 50%;height:50px;font-size: 25px;">Book Now</button>
   </div>
 </div>
-<script>
-</script>
+</form>

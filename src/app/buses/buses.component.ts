@@ -20,7 +20,8 @@ export class BusesComponent implements OnInit {
   bb:number;
   seatView(bus:Bus){
     this.showseat=!this.showseat;
-    console.log(bus.id)
+    console.log(bus.id);
+    this.buses.setBuss(bus);
     this.bb = bus.id;
     this.seatservice.getSeats(bus.id).subscribe(
       data => {
